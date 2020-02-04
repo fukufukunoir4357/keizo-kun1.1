@@ -1,0 +1,31 @@
+p#notice
+  = notice
+h1
+  | Favorites
+table
+  thead
+    tr
+      th
+        | User
+      th
+        | Site
+      th
+        | Language
+      th[colspan="3"]
+  tbody
+    - @favorites.each do |favorite|
+      tr
+        td
+          = favorite.user
+        td
+          = favorite.site
+        td
+          = favorite.language
+        td
+          = link_to 'Show', favorite
+        td
+          = link_to 'Edit', edit_favorite_path(favorite)
+        td
+          = link_to 'Destroy', favorite, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Favorite', new_favorite_path

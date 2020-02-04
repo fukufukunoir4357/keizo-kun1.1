@@ -1,0 +1,15 @@
+= form_with(model: language, local: true) do |form|
+  - if language.errors.any?
+    #error_explanation
+      h2
+        = pluralize(language.errors.count, "error")
+        |  prohibited this language from being saved:
+      ul
+        - language.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = form.label :name
+    = form.text_field :name
+  .actions
+    = form.submit

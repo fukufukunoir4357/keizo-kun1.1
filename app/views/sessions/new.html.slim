@@ -1,0 +1,16 @@
+h1
+  | ユーザーログイン画面
+p
+  |　ユーザー登録がお済みの方は下記フォームよりログインしてください。
+
+  = form_for(:session, url: login_path) do |f|
+   =f.label :email
+   =f.email_field :email
+   
+   =f.label :password
+   =f.password_field :password
+   
+   =f.submit "Log in"
+   
+  p ユーザー登録がお済みで無い方
+  = link_to "↓新規ユーザー登録はこちら↓",new_user_path
